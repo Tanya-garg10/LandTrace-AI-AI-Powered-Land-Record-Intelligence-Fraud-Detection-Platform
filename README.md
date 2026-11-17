@@ -26,23 +26,25 @@ LandTrace AI is a full-stack enterprise GovTech platform built for transparent p
 ## Local Setup & Commands
 
 ```bash
-# 1. Install dependencies
-npm install
+# 1. Install dependencies (bun is the primary package manager; npm also works)
+bun install
 
 # 2. Configure environment variables (optional: copy .env.example to .env)
 cp .env.example .env
 
 # 3. Start full-stack dev server (Express API + Vite SPA on port 3000)
-npm run dev
+bun run dev
 
 # 4. Run automated backend & API test suite
-npm test
+bun test
 
 # 5. Typecheck & build for production
-npm run lint
-npm run build
-npm start
+bun run lint
+bun run build
+bun start
 ```
+
+> `bun start` runs `node server.ts`, which requires Node.js 22.18+ (native TypeScript support) or use `bun run dev` for development.
 
 ---
 
@@ -55,6 +57,9 @@ npm start
 | `PORT` | HTTP port for Express + Vite server. | `3000` |
 | `DATABASE_PATH` | File path for SQLite database. | `./landtrace.db` |
 | `CORS_ORIGIN` | Allowed CORS origin in production. | `*` |
+| `APP_URL` | Public URL where the applet is hosted. | `http://localhost:3000` |
+
+Full endpoint reference: [`docs/API.md`](docs/API.md)
 
 ---
 
@@ -62,9 +67,10 @@ npm start
 
 | Role | Email | Password | Permissions |
 |---|---|---|---|
-| **Administrator** | `admin@landtrace.demo` | `Admin@123` | Full governance, property CRUD, mutation approvals, risk scans, exports |
-| **Verification Officer** | `officer@landtrace.demo` | `Officer@123` | Property edits, document AI analysis, mutation updates, ownership events |
-| **Auditor** | `auditor@landtrace.demo` | `Auditor@123` | Read-only inspection, SHA-256 hash-chain verification, PDF/CSV exports |
+| **Citizen / Landowner** | `citizen@landtrace.demo` | `Citizen@123` | View own linked parcels, ownership timeline, submit mutation requests |
+| **Revenue Officer** | `revenue@landtrace.demo` | `Revenue@123` | Mutation circle oversight, assigned parcel review, status updates |
+| **Document Verification Officer** | `officer@landtrace.demo` | `Officer@123` | Property edits, document AI analysis, mutation updates, ownership events |
+| **System Administrator** | `admin@landtrace.demo` | `Admin@123` | Full governance, property CRUD, mutation approvals, risk scans, exports |
 
 ---
 
@@ -90,5 +96,7 @@ A Render blueprint is provided in `render.yaml`:
 ## Known Limitations
 
 - Uses SQLite (`better-sqlite3`) seeded with 25 synthetic properties for frictionless zero-config local evaluation; switching to hosted PostgreSQL in high-concurrency production requires swapping the DB driver/connection layer.
+- On Render's free tier the filesystem is ephemeral — the SQLite database (`landtrace.db`) and `uploads/` directory reset on redeploy/restart. Attach a persistent disk or migrate to a hosted database for production durability.
 - The SHA-256 Audit Ledger is an application-level tamper-evident chain; it detects application/payload modifications and broken links, but is not a public blockchain and cannot defend against privileged OS/database superuser manipulation.
 - Document OCR for scanned images relies on Gemini multimodal vision when `GEMINI_API_KEY` is configured; when offline without an API key, the deterministic local parser handles text/PDF text layers.
+- `uploads/` is gitignored (runtime uploads). Only `sample_data/` demo documents are committed to the repo.
