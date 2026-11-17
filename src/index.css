@@ -1,0 +1,81 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-display: 'Manrope', system-ui, -apple-system, sans-serif;
+    --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+    --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
+
+    --lt-forest: #173F32;
+    --lt-forest-hover: #113026;
+    --lt-emerald: #398568;
+    --lt-warm-white: #FAFAF6;
+    --lt-sage: #EAF0E9;
+    --lt-white: #FFFFFF;
+    --lt-charcoal: #242B27;
+    --lt-muted: #616D66;
+    --lt-border: #E4E7DF;
+    --lt-gold: #C4A36A;
+    --lt-amber: #E5A13A;
+    --lt-orange: #E67E45;
+    --lt-red: #D95B55;
+  }
+
+  html {
+    font-family: var(--font-sans);
+    color: var(--lt-charcoal);
+    background-color: var(--lt-warm-white);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, .font-display {
+    font-family: var(--font-display);
+  }
+
+  .font-mono {
+    font-family: var(--font-mono);
+  }
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Subtle editorial parcel-grid background motif */
+.bg-parcel-grid {
+  background-image:
+    linear-gradient(to right, rgba(23, 63, 50, 0.045) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(23, 63, 50, 0.045) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+/* Clean custom scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #D2D8CE;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #AAB3A4;
+}
+
+/* Leaflet map refinements */
+.leaflet-container {
+  font-family: var(--font-sans);
+  background: #EAF0E9;
+}
+.leaflet-popup-content-wrapper {
+  border-radius: 10px;
+  box-shadow: 0 12px 28px -6px rgba(23, 63, 50, 0.14), 0 4px 10px -4px rgba(0, 0, 0, 0.06);
+  border: 1px solid #E4E7DF;
+}
+.leaflet-popup-content {
+  margin: 12px 14px;
+}

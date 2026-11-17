@@ -1,0 +1,18 @@
+LANDTRACE DEMO SYNTHETIC VERIFIED SALE DEED (NOT A REAL LEGAL DEED)
+=======================================================================
+Document Type: Registered Sale Deed Extract
+Document Reference: DEED-MH-2021-10492
+Registration Date: 2021-04-12
+Parcel ID: LT-PAR-1001
+Survey Number: SY-101/A
+District: Sahyadri Valley
+Village: Paudwadi
+Tehsil: Mulshi
+
+Previous Owner: Narayan V. Gokhale
+Owner Name: Anand Narayan Gokhale
+Land Area: 3,200 sq.m
+
+SUMMARY (SYNTHETIC DEMO RECORD)
+This synthetic test instrument confirms registered conveyance of agricultural parcel
+LT-PAR-1001 (Survey SY-101/A, extent 3,200 sq.m) in favour of Anand Narayan Gokhale.

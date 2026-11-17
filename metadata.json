@@ -1,0 +1,6 @@
+{
+  "name": "LandTrace AI",
+  "description": "AI-Powered Land Record Intelligence & Fraud Detection Platform — Know Every Change. Verify Every Record. Protect Every Property.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
