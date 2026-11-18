@@ -5,6 +5,7 @@
 [![Node](https://img.shields.io/badge/node-%E2%89%A522.18-brightgreen.svg)](https://nodejs.org)
 [![Bun](https://img.shields.io/badge/bun-1.x-f9f1e1.svg)](https://bun.sh)
 [![Gemini](https://img.shields.io/badge/AI-Gemini%204%20Hydrogen-886fbf.svg)](https://ai.google.dev)
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
 LandTrace AI is a full-stack enterprise GovTech platform for transparent property record traceability. It combines multimodal Gemini AI document verification, explainable deterministic risk scoring, GIS parcel visualization, mutation workflow governance, role-based access control, and SHA-256 tamper-evident audit logging into a single deployable application.
 
@@ -25,6 +26,7 @@ LandTrace AI is a full-stack enterprise GovTech platform for transparent propert
 - [Testing](#testing)
 - [Deployment](#deployment-render)
 - [Known Limitations](#known-limitations)
+- [License](#license)
 
 ---
 
@@ -201,6 +203,12 @@ Set `GEMINI_API_KEY` and `JWT_SECRET` in the Render dashboard (**Environment** t
 - **Ephemeral filesystem on Render free tier** — `landtrace.db` and `uploads/` reset on every redeploy/restart. Attach a persistent disk or migrate to a hosted database for durability. (`uploads/` is gitignored; only `sample_data/` demo documents are committed.)
 - **Application-level audit chain** — The SHA-256 hash-chain detects application/payload modifications and broken links, but is not a public blockchain and cannot defend against privileged OS/database superuser manipulation.
 - **Offline AI fallback** — Scanned-image OCR relies on Gemini multimodal vision when `GEMINI_API_KEY` is configured; without a key, the deterministic local parser handles text/PDF text layers only.
+
+---
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
 
 ---
 
